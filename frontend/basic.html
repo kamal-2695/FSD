@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kamal N | Portfolio</title>
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#2d89ef;
+  --accent:#ffb900;
+  --bg:#0f0f1a;
+  --card-bg:#1a1a2e;
+  --text:#fff;
+  --shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;}
+body{background:var(--bg);color:var(--text);scroll-behavior:smooth;line-height:1.6;}
+a{text-decoration:none;color:inherit;}
+nav{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  background:rgba(0,0,0,0.6);
+  display:flex;
+  justify-content:center;
+  padding:1rem 0;
+  z-index:1000;
+  backdrop-filter:blur(10px);
+}
+nav a{
+  color:#fff;
+  margin:0 1.5rem;
+  font-weight:700;
+  position:relative;
+  transition:0.3s;
+}
+nav a::after{
+  content:'';
+  height:2px;
+  width:0;
+  background:#ffb900;
+  position:absolute;
+  left:0;
+  bottom:-4px;
+  transition:0.3s;
+}
+nav a:hover::after{width:100%;}
+nav a:hover{color:#ffb900;}
+
+/* Hero */
+.hero{
+  height:100vh;
+  background:linear-gradient(135deg,#2d89ef,#ffb900);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.hero h1, .hero p, .hero .cta{
+  opacity:0;
+  transform:translateY(30px);
+  animation-fill-mode:forwards;
+}
+.hero h1{animation:fadeInUp 1s ease forwards;}
+.hero p{animation:fadeInUp 1.5s ease forwards;}
+.hero .cta{animation:fadeInUp 2s ease forwards;}
+.hero .cta:hover{background:var(--accent);color:#fff;transform:scale(1.05);}
+@keyframes fadeInUp{0%{opacity:0;transform:translateY(30px);}100%{opacity:1;transform:translateY(0);}}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+
+.container{max-width:1200px;margin:0 auto;padding:2rem 1rem;}
+
+/* Skills Section */
+#skills{padding:6rem 0;}
+.skills-title{text-align:center;margin-bottom:4rem;font-size:2.5rem;color:var(--accent);}
+.skills-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:3rem;}
+.skill-card{
+  width:150px;height:150px;background:var(--card-bg);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;flex-direction:column;
+  box-shadow:var(--shadow);transition:0.3s;position:relative;overflow:hidden;opacity:0;transform:translateY(30px);
+}
+.skill-card.animate{opacity:1;transform:translateY(0);transition:1s;}
+.progress-circle{
+  position:relative;width:120px;height:120px;border-radius:50%;
+  background:conic-gradient(var(--accent) 0%,#444 0%);
+  display:flex;align-items:center;justify-content:center;margin-bottom:0.5rem;
+}
+.progress-circle span{position:absolute;font-weight:700;color:#fff;}
+.skill-name{font-weight:700;color:var(--accent);text-align:center;}
+.linear-skill{width:250px;height:20px;background:#222;border-radius:10px;margin:0.5rem 0;overflow:hidden;position:relative;}
+.linear-skill .progress{height:100%;width:0;background:var(--accent);border-radius:10px;transition:1.5s;}
+.linear-skill span{position:absolute;right:10px;top:0;font-weight:700;color:#fff;line-height:20px;font-size:0.9rem;}
+
+/* Projects */
+#projects{padding:6rem 0;background:linear-gradient(135deg,#1a1a2e,#0f0f1a);}
+.projects-title{text-align:center;margin-bottom:4rem;font-size:2.5rem;color:var(--accent);}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;}
+.project-card{
+  background:var(--card-bg);border-radius:15px;overflow:hidden;position:relative;cursor:pointer;transition:0.5s;opacity:0;transform:translateY(30px);
+}
+.project-card.animate{opacity:1;transform:translateY(0);transition:1s;}
+.project-card:hover .overlay{opacity:1;transform:translateY(0);}
+.project-card img{width:100%;display:block;transition:0.5s;}
+.overlay{
+  position:absolute;top:0;left:0;width:100%;height:100%;
+  background:rgba(0,0,0,0.7);color:#fff;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;opacity:0;transform:translateY(50px);transition:0.5s;padding:1rem;
+}
+.overlay h3{font-size:1.5rem;margin-bottom:0.5rem;color:var(--accent);}
+.overlay p{font-size:1rem;}
+.overlay a{margin-top:0.5rem;padding:0.5rem 1rem;background:var(--accent);border-radius:20px;color:#fff;transition:0.3s;}
+.overlay a:hover{background:var(--primary);}
+
+/* Achievements */
+#achievements{padding:6rem 0;}
+.achievements-title{text-align:center;margin-bottom:4rem;font-size:2.5rem;color:var(--accent);}
+.achievements-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:3rem;}
+.achievement-card{
+  background:var(--card-bg);width:200px;height:200px;border-radius:20px;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;box-shadow:var(--shadow);transition:0.3s;opacity:0;transform:translateY(30px);
+}
+.achievement-card.animate{opacity:1;transform:translateY(0);}
+.achievement-card:hover{transform:scale(1.1);}
+.achievement-card h2{font-size:2.5rem;color:var(--accent);}
+.achievement-card p{font-weight:700;margin-top:0.5rem;}
+
+/* Timeline */
+#timeline{padding:6rem 0;background:#111;}
+.timeline-title{text-align:center;margin-bottom:4rem;font-size:2.5rem;color:var(--accent);}
+.timeline{position:relative;margin:0 auto;padding:2rem 0;width:80%;}
+.timeline::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:4px;height:100%;background:var(--accent);}
+.timeline-item{position:relative;width:50%;padding:1rem 2rem;box-sizing:border-box;opacity:0;transform:translateY(30px);}
+.timeline-item.animate{opacity:1;transform:translateY(0);transition:1s;}
+.timeline-item.left{left:0;text-align:right;}
+.timeline-item.right{left:50%;}
+.timeline-item::before{content:'';position:absolute;top:15px;width:20px;height:20px;background:var(--accent);border-radius:50%;z-index:1;}
+.timeline-item.left::before{right:-10px;}
+.timeline-item.right::before{left:-10px;}
+.timeline-item h4{margin-bottom:0.3rem;color:var(--accent);}
+.timeline-item p{color:#ccc;}
+
+/* About Me */
+#about{padding:6rem 0;background:var(--bg);}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;}
+.about-img{width:100%;border-radius:20px;box-shadow:var(--shadow);}
+.about-text h2{font-size:2.5rem;margin-bottom:1rem;color:var(--accent);}
+.about-text p{margin-bottom:1rem;line-height:1.6;color:#ccc;}
+
+/* Testimonials */
+#testimonials{padding:6rem 0;background:#1a1a2e;}
+.testimonials-title{text-align:center;margin-bottom:4rem;font-size:2.5rem;color:var(--accent);}
+.testimonials-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:2rem;}
+.testimonial-card{
+  background:var(--card-bg);width:300px;border-radius:15px;padding:2rem;box-shadow:var(--shadow);
+  transition:0.3s;opacity:0;transform:translateY(30px);
+}
+.testimonial-card.animate{opacity:1;transform:translateY(0);transition:1s;}
+.testimonial-card:hover{transform:scale(1.05);}
+.testimonial-card p{font-style:italic;color:#ccc;}
+.testimonial-card h4{margin-top:1rem;color:var(--accent);}
+
+/* Contact */
+#contact{padding:6rem 0;background:linear-gradient(135deg,#2d89ef,#ffb900);}
+.contact-title{text-align:center;margin-bottom:4rem;font-size:2.5rem;color:#fff;}
+.contact-form{max-width:600px;margin:0 auto;display:flex;flex-direction:column;gap:1.5rem;}
+.contact-form input,.contact-form textarea{padding:1rem;border-radius:10px;border:none;outline:none;font-size:1rem;}
+.contact-form button{padding:1rem;border:none;border-radius:50px;background:#fff;color:var(--primary);font-weight:700;cursor:pointer;transition:0.3s;}
+.contact-form button:hover{background:var(--accent);color:#fff;}
+footer{text-align:center;padding:2rem;background:#111;font-size:1rem;color:#888;}
+@media(max-width:900px){
+  .about-grid{grid-template-columns:1fr;}
+  .timeline-item{width:100%;padding-left:3rem;padding-right:3rem;text-align:left;}
+  .timeline::before{left:20px;}
+  .timeline-item.left::before,.timeline-item.right::before{left:-10px;}
+  .timeline-item.right{left:0;}
+}
+</style>
+</head>
+<body>
+<nav>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#achievements">Achievements</a>
+<a href="#timeline">Timeline</a>
+<a href="#about">About</a>
+<a href="#testimonials">Testimonials</a>
+<a href="#contact">Contact</a>
+</nav>
+<section class="hero">
+<h1>Kamal N</h1>
+<p>Full Stack Developer & ML Enthusiast</p>
+<div class="cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Hire Me</div>
+</section>
+<div class="container">
+<section id="skills">
+<h2 class="skills-title">My Skills</h2>
+<div class="skills-grid">
+<div class="skill-card" data-skill="90"><div class="progress-circle"><span>0%</span></div><div class="skill-name">C</div></div>
+<div class="skill-card" data-skill="85"><div class="progress-circle"><span>0%</span></div><div class="skill-name">C++</div></div>
+<div class="skill-card" data-skill="80"><div class="progress-circle"><span>0%</span></div><div class="skill-name">Java</div></div>
+<div class="skill-card" data-skill="85"><div class="progress-circle"><span>0%</span></div><div class="skill-name">Python</div></div>
+<div class="skill-card" data-skill="75"><div class="progress-circle"><span>0%</span></div><div class="skill-name">ML</div></div>
+<div class="skill-card" data-skill="80"><div class="progress-circle"><span>0%</span></div><div class="skill-name">DSA</div></div>
+</div>
+</section>
+
+<!-- Projects -->
+<section id="projects">
+<h2 class="projects-title">Projects</h2>
+<div class="projects-grid">
+<div class="project-card"><img src="https://via.placeholder.com/400x300" alt="Medical History App"><div class="overlay"><h3>Medical History App</h3><p>Stores patient records, online/offline consultations, pharmacy management.</p><a href="#">View Project</a></div></div>
+<div class="project-card"><img src="https://via.placeholder.com/400x300" alt="PET"><div class="overlay"><h3>Personal Expense Tracker (PET)</h3><p>Tracks expenses for teens, adults, and seniors with savings/insurance features.</p><a href="#">View Project</a></div></div>
+</div>
+</section>
+
+<!-- Achievements -->
+<section id="achievements">
+<h2 class="achievements-title">Achievements</h2>
+<div class="achievements-grid">
+<div class="achievement-card"><h2>2</h2><p>Major Projects</p></div>
+<div class="achievement-card"><h2>5</h2><p>Hackathons</p></div>
+<div class="achievement-card"><h2>3</h2><p>Certifications</p></div>
+<div class="achievement-card"><h2>1</h2><p>App Published</p></div>
+</div>
+</section>
+
+<!-- Timeline -->
+<section id="timeline">
+<h2 class="timeline-title">Timeline</h2>
+<div class="timeline">
+<div class="timeline-item left"><h4>2021</h4><p>Started learning C & C++ and built small projects.</p></div>
+<div class="timeline-item right"><h4>2022</h4><p>Completed Python & ML courses and developed PET app.</p></div>
+<div class="timeline-item left"><h4>2023</h4><p>Medical History App launched for online/offline consultation.</p></div>
+<div class="timeline-item right"><h4>2024</h4><p>Full stack developer internship & Hackathon awards.</p></div>
+</div>
+</section>
+
+<!-- About -->
+<section id="about">
+<div class="about-grid">
+<div class="about-img"><img src="C:\Users\kamal\OneDrive\Desktop\FSD\pic\IMG_20250529_173355[1].jpg" alt="Kamal N"></div>
+<div class="about-text">
+<h2>About Me</h2>
+<p>Hi, I'm Kamal N, a passionate Full Stack Developer and ML enthusiast. I love creating efficient and user-friendly web applications and exploring innovative solutions with AI & ML.</p>
+<p>My goal is to solve real-world problems with code, continuously improve my skills, and contribute to impactful projects.</p>
+<p>I enjoy collaborating with teams, learning new technologies, and pushing the boundaries of software development.</p>
+</div>
+</div>
+</section>
+
+<!-- Testimonials -->
+<section id="testimonials">
+<h2 class="testimonials-title">Testimonials</h2>
+<div class="testimonials-grid">
+<div class="testimonial-card"><p>"Kamal is an exceptional developer, delivering projects with quality and speed."</p><h4>- Mentor</h4></div>
+<div class="testimonial-card"><p>"His PET app helped me track expenses easily and save efficiently."</p><h4>- User</h4></div>
+<div class="testimonial-card"><p>"Kamal's Medical History App is simple yet very effective for patient tracking."</p><h4>- Client</h4></div>
+</div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+<h2 class="contact-title">Contact Me</h2>
+<form class="contact-form">
+<input type="text" placeholder="Your Name" required>
+<input type="email" placeholder="Your Email" required>
+<textarea placeholder="Your Message" required></textarea>
+<button type="submit">Send Message</button>
+</form>
+</section>
+
+</div>
+<footer>
+&copy; 2025 Kamal N. All rights reserved.
+</footer>
+
+<script>
+// Animate on scroll
+function animateOnScroll(){
+  const skillCards = document.querySelectorAll('.skill-card');
+  const projectCards = document.querySelectorAll('.project-card');
+  const achievementCards = document.querySelectorAll('.achievement-card');
+  const timelineItems = document.querySelectorAll('.timeline-item');
+  const testimonialCards = document.querySelectorAll('.testimonial-card');
+
+  const scrollY = window.innerHeight;
+
+  function animate(el){
+    const top = el.getBoundingClientRect().top;
+    if(top < scrollY - 50){
+      el.classList.add('animate');
+    }
+  }
+
+  skillCards.forEach(animate);
+  projectCards.forEach(animate);
+  achievementCards.forEach(animate);
+  timelineItems.forEach(animate);
+  testimonialCards.forEach(animate);
+
+  // Animate skill progress
+  skillCards.forEach(card=>{
+    const circle = card.querySelector('.progress-circle');
+    const span = circle.querySelector('span');
+    const val = card.dataset.skill;
+    if(card.classList.contains('animate')){
+      let progress = 0;
+      const interval = setInterval(()=>{
+        if(progress >= val){
+          clearInterval(interval);
+        } else {
+          progress++;
+          span.textContent = progress + '%';
+          circle.style.background = `conic-gradient(var(--accent) ${progress*3.6}deg,#444 0deg)`;
+        }
+      },15);
+    }
+  });
+}
+window.addEventListener('scroll',animateOnScroll);
+window.addEventListener('load',animateOnScroll);
+</script>
+<!-- Projects Section -->
+<section id="projects">
+  <h2 class="projects-title">Projects</h2>
+  <div class="projects-grid">
+    
+    <!-- Project 1 -->
+    <div class="project-card">
+      <img src="https://via.placeholder.com/400x300" alt="Medical History App">
+      <div class="overlay">
+        <h3>Medical History App</h3>
+        <p><strong>Description:</strong> A full-stack app to store patient history, enable online/offline doctor consultations, and manage medical stores efficiently.</p>
+        <p><strong>Technologies:</strong> HTML, CSS, JavaScript, Node.js, MongoDB</p>
+        <div style="margin-top:0.5rem;">
+          <a href="#" target="_blank">Live Demo</a>
+          <a href="#" target="_blank" style="margin-left:10px;">GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project-card">
+      <img src="https://via.placeholder.com/400x300" alt="Personal Expense Tracker">
+      <div class="overlay">
+        <h3>Personal Expense Tracker (PET)</h3>
+        <p><strong>Description:</strong> Tracks money and daily expenses for teens, adults, and seniors. Teens get targets, adults get savings insights, and seniors see insurance tracking.</p>
+        <p><strong>Technologies:</strong> React, Node.js, Express, MongoDB</p>
+        <div style="margin-top:0.5rem;">
+          <a href="#" target="_blank">Live Demo</a>
+          <a href="#" target="_blank" style="margin-left:10px;">GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Example Project 3 -->
+    <div class="project-card">
+      <img src="https://via.placeholder.com/400x300" alt="Portfolio Website">
+      <div class="overlay">
+        <h3>Portfolio Website</h3>
+        <p><strong>Description:</strong> My personal portfolio website showcasing my projects, skills, achievements, and contact form.</p>
+        <p><strong>Technologies:</strong> HTML, CSS, JavaScript, CSS Animations</p>
+        <div style="margin-top:0.5rem;">
+          <a href="#" target="_blank">Live Demo</a>
+          <a href="#" target="_blank" style="margin-left:10px;">GitHub</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+</body>
+</html>
