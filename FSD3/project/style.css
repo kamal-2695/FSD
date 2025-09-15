@@ -1,0 +1,163 @@
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f9f9f9, #d1c4e9);
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 25px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 14px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+}
+
+h1 {
+    text-align: center;
+    color: #6a1b9a;
+}
+
+h2 {
+    color: #d81b60;
+    margin-top: 30px;
+}
+
+/* Input & Buttons */
+input {
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 250px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #6a1b9a;
+}
+
+button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    background-color: #00897b;
+    color: white;
+    cursor: pointer;
+    margin-right: 5px;
+    margin-top: 5px;
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+button.clicked {
+    transform: scale(0.95);
+    background-color: #00695c;
+}
+
+button:hover {
+    background-color: #00695c;
+    transform: scale(1.05);
+}
+
+/* Remove First/Last Buttons */
+#removeFirstBtn, #removeLastBtn {
+    background-color: #fbc02d;
+    color: #212121;
+}
+
+#removeFirstBtn:hover, #removeLastBtn:hover {
+    background-color: #f9a825;
+}
+
+/* Weather Cards */
+.weather-card {
+    background-color: #b2dfdb;
+    border: 1px solid #4db6ac;
+    padding: 12px;
+    margin-top: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.weather-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* News Cards */
+.news-card {
+    background-color: #ffe0b2;
+    border: 1px solid #ffb74d;
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.news-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Search History */
+#weatherHistoryContainer {
+    margin-top: 20px;
+    background-color: #d1c4e9;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+#weatherHistory li {
+    cursor: pointer;
+    padding: 6px;
+    margin: 3px 0;
+    background-color: #b39ddb;
+    border-radius: 6px;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+#weatherHistory li:hover {
+    background-color: #9575cd;
+    transform: scale(1.02);
+}
+
+/* Main Places */
+#mainPlacesContainer {
+    margin-top: 25px;
+    background-color: #c8e6c9;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+#mainPlacesList li {
+    cursor: pointer;
+    padding: 6px;
+    margin: 3px 0;
+    background-color: #81c784;
+    border-radius: 6px;
+    transition: background-color 0.2s, transform 0.2s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#mainPlacesList li:hover {
+    background-color: #66bb6a;
+    transform: scale(1.02);
+}
+
+/* View Completed Button */
+.completeBtn {
+    background-color: #ff7043;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 3px 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    font-size: 0.9em;
+}

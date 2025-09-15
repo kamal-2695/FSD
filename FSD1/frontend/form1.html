@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+
+    <style>
+        :root {
+            --primary: #1abc9c;
+            --accent: #3498db;
+            --bg: #f0f4f8;
+            --card-bg: #ffffff;
+            --text: #333;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --radius: 0.8rem;
+            --gap: 1rem;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: var(--bg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 1rem;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 2rem;
+        }
+
+        .form-container {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            grid-gap: var(--gap);
+            align-items: center;
+        }
+
+        label {
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            padding: 0.7rem;
+            border-radius: var(--radius);
+            border: 1px solid #ccc;
+            width: 100%;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        .gender-group,
+        .hobbies-group {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .gender-group input,
+        .hobbies-group input {
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+
+        .submit-btn {
+            grid-column: span 2;
+            background: var(--primary);
+            color: #fff;
+            padding: 1rem;
+            border: none;
+            border-radius: var(--radius);
+            font-size: 1.1rem;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .submit-btn:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 600px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .submit-btn {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="form-container">
+        <h1>🎓 Student Registration</h1>
+
+        <form class="form-grid">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="John Doe" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+
+            <label>Gender</label>
+            <div class="gender-group">
+                <label><input type="radio" name="gender" value="Male" required> Male</label>
+                <label><input type="radio" name="gender" value="Female"> Female</label>
+            </div>
+
+            <label>Hobbies</label>
+            <div class="hobbies-group">
+                <label><input type="checkbox" name="hobbies" value="Sports"> Sports</label>
+                <label><input type="checkbox" name="hobbies" value="Reading"> Reading</label>
+                <label><input type="checkbox" name="hobbies" value="Music"> Music</label>
+            </div>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="********" required>
+
+            <button type="submit" class="submit-btn">Register Now</button>
+        </form>
+    </div>
+
+</body>
+
+</html>

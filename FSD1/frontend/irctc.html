@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Train Ticket Booking</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+    * {box-sizing: border-box;margin: 0;padding: 0;font-family: 'Roboto', sans-serif;}
+    body {
+        background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+        display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px;
+        overflow-x: hidden;
+    }
+    .container {
+        display: flex;
+        background-color: #ffffff;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        overflow: hidden;
+        max-width: 1000px;
+        width: 100%;
+        position: relative;
+    }
+    .form-section {
+        flex: 1;
+        padding: 40px;
+        z-index: 2;
+        position: relative;
+    }
+    .form-section h1 {color: #1c3f94; margin-bottom: 15px; font-size: 30px; text-align: center;}
+    .banner {width: 100%; border-radius: 10px; overflow: hidden; margin-bottom: 25px; background-color: #ffebcd; height: 80px; display:flex; align-items:center; justify-content:center;}
+    .banner span {font-size: 24px; font-weight:bold; color:#ff7f27;}
+    .form-group {position: relative; margin-bottom: 18px;}
+    .form-group label {display: block; font-weight: 500; margin-bottom: 5px;}
+    .form-group input, .form-group select {
+        width: 100%; padding: 12px 40px 12px 12px;
+        border: 1px solid #ddd; border-radius: 8px; font-size: 16px; outline: none;
+        transition: all 0.3s;
+    }
+    .form-group input:focus, .form-group select:focus {
+        border-color: #1c3f94;
+        box-shadow: 0 0 5px rgba(28,63,148,0.3);
+    }
+    .form-group img.icon {
+        position: absolute; right: 12px; top: 36px; width: 20px; opacity: 0.6;
+    }
+    .form-checkbox-group {display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 25px;}
+    .form-checkbox-group label {
+        display: flex; align-items: center; gap: 8px; font-size: 14px;
+        background-color: #f1f5f9; padding: 8px 12px; border-radius: 8px; cursor: pointer;
+        transition: all 0.3s;
+    }
+    .form-checkbox-group input {transform: scale(1.2); cursor: pointer;}
+    .form-checkbox-group label:hover {background-color: #e0f2ff;}
+    .btn {
+        display: block; width: 100%; padding: 14px 0;
+        background: linear-gradient(to right, #ff7f27, #ffb347);
+        color: #fff; border: none; border-radius: 10px; font-size: 18px; cursor: pointer;
+        transition: all 0.3s; text-align: center;
+    }
+    .btn:hover {
+        background: linear-gradient(to right, #ffb347, #ff7f27);
+        box-shadow: 0 5px 15px rgba(255,127,39,0.4);
+    }
+
+    /* Right section with colors and animations */
+    .image-section {
+        flex: 1;
+        background: linear-gradient(to top, #ffd1dc, #ffe1f0);
+        position: relative;
+        overflow: hidden;
+    }
+    .train {
+        position: absolute;
+        bottom: 30px;
+        width: 120px;
+        height: auto;
+        background-color: #ff7f27;
+        border-radius: 10px;
+        animation: moveTrain 8s linear infinite;
+        display: flex; align-items: center; justify-content: center;
+        color:white; font-weight:bold;
+    }
+    @keyframes moveTrain {
+        0% {left: -150px;}
+        50% {left: 50%;}
+        100% {left: 100%;}
+    }
+
+    .image-section .cloud {
+        position: absolute;
+        top: 20px;
+        width: 100px;
+        height: 50px;
+        background: #fff;
+        border-radius: 50%;
+        opacity: 0.7;
+        animation: moveCloud 20s linear infinite;
+    }
+    .image-section .cloud:nth-child(2) {top:60px; animation-duration: 25s; width: 120px; height:60px;}
+    @keyframes moveCloud {
+        0% {left: -120px;}
+        100% {left: 110%;}
+    }
+
+    @media (max-width: 768px) {
+        .container {flex-direction: column;}
+        .image-section {height: 250px;}
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="form-section">
+        <h1>Book Your Ticket</h1>
+        <div class="banner">
+            <span>Train Booking</span>
+        </div>
+
+        <div class="form-group">
+            <label for="from">From</label>
+            <input type="text" id="from" placeholder="Enter starting station"/>
+        </div>
+        <div class="form-group">
+            <label for="to">To</label>
+            <input type="text" id="to" placeholder="Enter destination station"/>
+        </div>
+        <div class="form-group">
+            <label for="date">Date</label>
+            <input type="date" id="date"/>
+        </div>
+        <div class="form-group">
+            <label for="class">Class</label>
+            <select id="class">
+                <option>All Classes</option>
+                <option>First AC</option>
+                <option>Second AC</option>
+                <option>Third AC</option>
+                <option>Sleeper</option>
+                <option>General</option>
+            </select>
+        </div>
+
+        <div class="form-checkbox-group">
+            <label><input type="checkbox"/> PWD Concession</label>
+            <label><input type="checkbox"/> Flexible Date</label>
+            <label><input type="checkbox"/> Available Berth</label>
+            <label><input type="checkbox"/> Railway Pass</label>
+        </div>
+
+        <button class="btn">Search Trains</button>
+    </div>
+
+    <div class="image-section">
+        <!-- Animated trains (colored placeholders) -->
+        <div class="train">🚆</div>
+        <div class="cloud"></div>
+        <div class="cloud"></div>
+    </div>
+</div>
+</body>
+</html>

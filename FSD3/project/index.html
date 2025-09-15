@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Weather & Tesla News Fetcher</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Weather & Tesla News Fetcher</h1>
+
+        <!-- Weather Section -->
+        <section>
+            <h2>Weather Fetcher</h2>
+            <input type="text" id="cityInput" placeholder="Enter city (e.g., London)">
+            <button id="fetchWeatherBtn">Fetch Weather</button>
+            <button id="clearWeatherBtn">Clear All</button>
+            <button id="removeFirstBtn">Remove First</button>
+            <button id="removeLastBtn">Remove Last</button>
+
+            <div id="weather"></div>
+
+            <!-- Weather Search History -->
+            <div id="weatherHistoryContainer">
+                <h3>Search History</h3>
+                <ul id="weatherHistory"></ul>
+                <button id="clearHistoryBtn">Clear History</button>
+            </div>
+
+            <!-- Main Places -->
+            <div id="mainPlacesContainer">
+                <h3>Main Places</h3>
+                <input type="text" id="mainPlaceInput" placeholder="Enter city to add/remove">
+                <button id="addMainPlaceBtn">Add Place</button>
+                <button id="removeMainPlaceBtn">Remove Place</button>
+                <ul id="mainPlacesList"></ul>
+            </div>
+        </section>
+
+        <!-- Tesla News Section -->
+        <section>
+            <h2>Tesla News</h2>
+            <button id="fetchNewsBtn">Fetch Tesla News</button>
+            <button id="clearNewsBtn">Clear News</button>
+            <div id="news"></div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
